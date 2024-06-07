@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f1f4fd;
+}
+.container {
+    max-width: 1200px;
+    width: 95%;
+}
+
+.slider-wrapper {
+    position: relative;
+}
+
+.slider-wrapper .slide-button {
+    position: absolute;
+    top: 50%;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    z-index: 1;
+    display: flex;
+    cursor: pointer;
+    background: #ffffff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    opacity: 0.95;
+}
+
+
+.slider-wrapper .slide-button#prev-slide {
+    left: -25px;
+    display: none;
+}
+
+.slider-wrapper .slide-button#next-slide {
+    right: -25px;
+}
+
+.slider-wrapper .image-list {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 10px;
+    list-style: none;
+    margin-bottom: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper .image-list .image-item {
+    object-fit: cover;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+.image-element {
+    position: relative;
+}
+
+.image-span {
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.image-span__text{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    background-color: grey;
+    opacity: 0.7;
+    padding: 5px 7px;
+    border-radius: 10px;
+}
+
+.image-span__icon {
+    background-color: #ffffff;
+    color: grey;
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1;
+}
+
+.image-span__container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.image-span__container .image-span__inform {
+    visibility: hidden;
+    font-size: 0.7rem;
+    width: 120px;
+    background-color: grey;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    right: 30px;
+    z-index: 1;
+    line-height: 1;
+    opacity: 0.7;
+}
+
+.image-span__container:hover .image-span__inform {
+    visibility: visible;
+}
+
+.image-inscription {
+    background: rgb(227,191,170);
+    background: linear-gradient(0deg, rgba(227,191,170,1) 4%, rgba(255,248,244,1) 87%);
+    position: absolute;
+    bottom: 0px;
+    height: 100px;
+    opacity: 0.95;
+    padding: 10px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.image-inscription--backgroundgreen {
+    background: rgb(153,213,99);
+    background: linear-gradient(0deg, rgba(153,213,99,1) 4%, rgba(222,242,205,1) 51%, rgba(252,255,250,1) 87%);
+}
+
+.image-inscription--backgroundbroun {
+    background: rgb(150,89,46);
+    background: linear-gradient(0deg, rgba(150,89,46,1) 20%, rgba(144,99,43,1) 40%, rgba(252,255,250,1) 100%);
+}
+
+.container .slider-scrollbar {
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slider-scrollbar .scrollbar-track {
+    background: #ccc;
+    width: 100%;
+    height: 2px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+}
+
+.slider-scrollbar:hover .scrollbar-track {
+    height: 4px;
+}
+
+.slider-scrollbar .scrollbar-thumb {
+    position: absolute;
+    background: #000;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    cursor: grab;
+    border-radius: inherit;
+}
+
+.slider-scrollbar .scrollbar-thumb:active {
+    cursor: grabbing;
+    height: 8px;
+    top: -2px;
+}
+
+.slider-scrollbar .scrollbar-thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+
+
+  /* Styles for tablets */
+@media only screen and (max-width: 1023px) {
+    .slider-wrapper .slide-button {
+        display: none !important;
+    }
+
+    .slider-wrapper .image-list {
+        gap: 10px;
+        margin-bottom: 15px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        width: 280px;
+        height: 380px;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 20%;
+    }
+}
+
+  /* Styles for mobile */
+@media only screen and (max-width: 359px) {
+
+    .slider-wrapper .image-list {
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+}
